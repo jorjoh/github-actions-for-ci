@@ -17,6 +17,7 @@ jobs:
           npm install
           needs: build
       - uses: actions/upload-artifact@main
+      - uses: actions/download-artifact@main
         with:
           name: webpack artifacts
           path: public/
@@ -26,7 +27,6 @@ jobs:
 
     strategy:
       matrix:
-        - uses: actions/download-artifact@main
         node-version: [12.x, 14.x]
 
     steps:
